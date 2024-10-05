@@ -32,7 +32,7 @@ import { deleteSalesDocument } from 'src/services/apiCall';
   };
 
   return (
-    <div className="m-md-10 m-sm-2 p-5 ">
+    <div className=" mx-10 m-sm-2 p-5 ">
       <div className="flex justify-between items-center mb-10">
         <h2 className="text-2xl font-semibold">Sales List</h2>
         <Link href="/add-sales">
