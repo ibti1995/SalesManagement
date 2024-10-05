@@ -7,7 +7,7 @@ import { HOME_ROUTE } from 'src/constants/routes';
  import { salesSchema } from 'src/validationSchema/sales';
 import InputField from './inputField';
 import { Sales, SalesFormValues } from 'src/types/formTypes';
-import SubmitButton from './button';
+import CustomButton from './button';
 import { addSalesDocument, updateSalesDocument } from 'src/services/apiCall';
 export default function FormComponent({ data }: { data?: Sales }) {
   const router = useRouter();
@@ -95,7 +95,7 @@ export default function FormComponent({ data }: { data?: Sales }) {
             name="totalAmount"
             label="Total Amount"
           />
-          <SubmitButton
+          <CustomButton
             classname="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             label={data ? 'Update' : 'Add'}
           />

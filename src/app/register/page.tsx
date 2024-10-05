@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from 'src/validationSchema/auth';
 import { auth } from 'src/services/firebase';
-import SubmitButton from 'src/components/button';
+import CustomButton from 'src/components/button';
  
 const Register = () => {
   const router = useRouter();
@@ -68,7 +68,7 @@ const Register = () => {
             name="cnfPassword"
             label="Confirm Password"
           />
-          <SubmitButton
+          <CustomButton
             classname="bg-blue-500 rounded-md py-2 px-3"
             label="Submit"
           />

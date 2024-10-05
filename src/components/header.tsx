@@ -34,7 +34,7 @@ const Header = () => {
   }
 
   return (
-    <header className="h-20 flex px-md-10 px-sm-5 shadow-md text-black">
+    <header className="h-20 flex px-10 px-sm-5 shadow-md text-black">
       <nav className="w-full mx-auto flex justify-between items-center px-2 text-black font-serif text-xl">
         <div>
           <Image src={logo} alt="Logo" width={150} height={50} />

@@ -1,6 +1,6 @@
-import { SubmitButtonType } from "src/types/formTypes"
+import { CustomButtonType } from "src/types/formTypes"
 
-const SubmitButton = ({label,classname}:SubmitButtonType) => {
+const CustomButton = ({label,classname}:CustomButtonType) => {
     return (
         <div className="flex justify-center mt-6 mb-3">
             <button className={classname}>{label}</button>
@@ -8,4 +8,4 @@ const SubmitButton = ({label,classname}:SubmitButtonType) => {
     )
 }
 
-export default SubmitButton;
+export default CustomButton;

@@ -1,8 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { doc, deleteDoc, updateDoc, addDoc, collection } from 'firebase/firestore'; // Adjust import based on your setup
+import {
+  doc,
+  deleteDoc,
+  updateDoc,
+  addDoc,
+  collection,
+  getDocs,
+} from 'firebase/firestore'; // Adjust import based on your setup
 import { database } from './firebase';
 import { SalesFormValues } from 'src/types/formTypes';
-
+ 
 export const addSalesDocument = async (data: SalesFormValues) => {
   try {
     const ref = collection(database, 'sales');

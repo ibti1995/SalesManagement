@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import Table from 'src/components/table';
-import SubmitButton from 'src/components/button';
+import CustomButton from 'src/components/button';
 import Link from 'next/link';
 
 import { useFetchSales } from 'src/hooks/fetchData';
@@ -36,7 +36,7 @@ import { deleteSalesDocument } from 'src/services/apiCall';
       <div className="flex justify-between items-center mb-10">
         <h2 className="text-2xl font-semibold">Sales List</h2>
         <Link href="/add-sales">
-          <SubmitButton
+          <CustomButton
             classname="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             label="Add Sale"
           />

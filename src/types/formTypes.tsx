@@ -17,7 +17,7 @@ export type InputType = {
   error: undefined | ErrorOption;
 };
 
-export type SubmitButtonType = {
+export type CustomButtonType = {
   label: string;
   classname: string;
 };
