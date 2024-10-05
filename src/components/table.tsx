@@ -5,7 +5,8 @@ import { TableType } from 'src/types/formTypes';
 import editIcon from 'src/assets/edit.svg';
 import deleteIcon from 'src/assets/trash.svg';
 import Image from 'next/image';
-const Table = ({ columns, data, handleDelete, handleUpdate }: TableType) => {
+ const Table = ({ columns, data, handleDelete, handleUpdate }: TableType) => {
+ 
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white border border-gray-200">

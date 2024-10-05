@@ -6,12 +6,9 @@
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 
-## Finish your CI setup
-
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/IApvqLNRdD)
-
 
 ## Run tasks
+You need to configure firebase and next auth and add fill the .env.local file with values from .env.local.example file
 
 To run the dev server for your app you need node version 20,
 
