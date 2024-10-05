@@ -3,14 +3,13 @@
 
 import { HOME_ROUTE, REGISTER_ROUTE } from 'src/constants/routes';
 import Link from 'next/link';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useRouter } from 'next/navigation';
+ import { useRouter } from 'next/navigation';
 import InputField from 'src/components/inputField';
 import { loginSchema } from 'src/validationSchema/auth';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { app } from 'src/services/firebase';
-import CustomButton from 'src/components/button';
+ import CustomButton from 'src/components/button';
+import { signInUser } from 'src/services/apiCall';
 const Login = () => {
   const router = useRouter();
 
@@ -23,13 +22,8 @@ const Login = () => {
   });
   const submitForm = async (values: any) => {
     try {
-      const credential =await signInWithEmailAndPassword(
-        getAuth(app),
-        values.email,
-        values.password
-      );
-      const idToken = await credential.user.getIdToken();
-       await fetch('/api/login', {
+      const idToken = await signInUser(values.email, values.password);
+      await fetch('/api/login', {
         headers: {
           Authorization: `Bearer ${idToken}`,
         },

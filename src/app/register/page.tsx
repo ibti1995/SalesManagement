@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import {LOGIN_ROUTE } from 'src/constants/routes';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import Link from 'next/link';
+ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import InputField from 'src/components/inputField';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registerSchema } from 'src/validationSchema/auth';
-import { auth } from 'src/services/firebase';
-import CustomButton from 'src/components/button';
+ import CustomButton from 'src/components/button';
+import { registerUser } from 'src/services/apiCall';
  
 const Register = () => {
   const router = useRouter();
@@ -21,15 +20,14 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(registerSchema),
   });
-   const submitForm = (values: any) => {
-    createUserWithEmailAndPassword(auth, values.email, values.password)
-      .then((response) => {
-        router.push(LOGIN_ROUTE);
-      })
-      .catch((e) => {
-        console.log('Login Error ', e.message);
-        alert('Please try Again');
-      });
+  const submitForm = async (values: any) => {
+    try {
+      await registerUser(values.email, values.password);
+      router.push(LOGIN_ROUTE);
+    } catch (e:any) {
+      console.log('Login Error:', e.message);
+      alert('Please try Again');
+    }
   };
 
   return (

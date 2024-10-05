@@ -5,11 +5,31 @@ import {
   updateDoc,
   addDoc,
   collection,
-  getDocs,
-} from 'firebase/firestore'; // Adjust import based on your setup
-import { database } from './firebase';
-import { SalesFormValues } from 'src/types/formTypes';
  
+} from 'firebase/firestore';
+import { database, app } from './firebase';
+import { SalesFormValues } from 'src/types/formTypes';
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+ 
+export const signInUser = async (email: string, password: string) => {
+  try {
+    const credential = await signInWithEmailAndPassword(getAuth(app), email, password);
+    const idToken = await credential.user.getIdToken();
+    return idToken;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
+
+export const registerUser = async (email: string, password: string) => {
+  const auth = getAuth(app);
+  try {
+    const response = await createUserWithEmailAndPassword(auth, email, password);
+    return response.user;
+  } catch (e: any) {
+    throw new Error(e.message);
+  }
+};
 export const addSalesDocument = async (data: SalesFormValues) => {
   try {
     const ref = collection(database, 'sales');
